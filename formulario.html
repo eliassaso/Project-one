@@ -1,0 +1,50 @@
+
+
+
+<html>
+	<HEAD>
+		<TITLE> Students utn </TITLE>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="bootstrap.css">
+		<script type="text/javascript" src="jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="bootstrap.js"></script>
+	<style>
+		form{background-color: #DCDCDC; text-align:center;border-style: ridge;border-width:1px;width: 60%;height: 500px;padding-top: 1%; border-color: #c0c0c0;
+			margin-top:1%;margin-bottom:5%;margin-left:20%;margin-right:20%; box-shadow: 5px 5px 7px #777;}
+		body{background-color: #E6FFEC;}
+		.container{width: 43%;height: 300px;margin-left: 5%;border-style: ridge;border-width: 1px;border-color: #c0c0c0;padding-top: 5%;display: block;float: left;background-color: #FFFFFF;box-shadow: 5px 5px 7px #777;}
+		#send{margin-top: 5%;}
+	</style>
+
+	</HEAD>
+	<BODY>
+		<header> 
+			<pre><h1 class="text-center"><p  class="text-primary">Dates of students</p></h1></pre>
+		</header>
+		<form class="form-group img-rounded"  id="student_form" method="POST" action="ProjectOne.php">
+			<h2 style="color:blue;">Formulary</h2>
+			<section class="container img-rounded">
+				Name: <input class="img-rounded" type="text" name="name" id='nombre'>
+				<br><br>
+				First name: <input class="img-rounded" type="text" name="firstName" id="fName">
+				<br><br>
+				Last name: <input class="img-rounded" type="text" name="lastName" id="lName">
+				<br><br>
+			</section>
+			<section class="container img-rounded">
+				Schedule: <input class="img-rounded" type="text" name="id" id="ide">
+				<br><br>
+				Date of birth: <input class="img-rounded" type="date" name="birthDate" id="birth">
+				<br><br>
+				e-m@il: <input class="img-rounded" type="email" name="email" pattern="[^ @]*@[^ @]*" value="" id="mail">
+				<br><br>
+				Phone: <input class="img-rounded" type="number" name="phone" id='phon'>
+				<br><br>
+				career: <input class="img-rounded" type="text" name="career" id="caree">
+				<br><br>
+			</section>
+			<input type="Submit" id="send" class="btn btn-success" value="Submit">
+		</form>
+	</BODY>
+</html>
+

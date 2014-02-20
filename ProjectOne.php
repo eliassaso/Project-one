@@ -10,6 +10,7 @@
 	$phone = $_REQUEST['phone'];
 	$career = $_REQUEST['career'];
 
+
 	if((empty($name))||(empty($firstName))||(empty($lastName))||(empty($schedule))||(empty($birthDate)) 
 		|| (empty($email)) ||(empty($phone))||(empty($career)))
 		{echo "<a style='padding-top: 7%;text-decoration: none;' href='formulario.html'><h2 style='color:red; text-align:center;'> must fill in all fields!!! </h2></a>"; return;} 
@@ -21,14 +22,22 @@
 	$fname= $fecha.'.csv';
 	$list = glob("$fecha.csv"); 
 
+	
+
 		$fp = fopen($fname, "a");
+
 		$write = "$name; $firstName; $lastName; $schedule; $birthDate; $email; $phone; $career".PHP_EOL;
 
 		if ($fp) {
 			fwrite($fp, $write);
 			fclose($fp);
-			echo "Success, he wrote ($write) on file ($fname)";
 		}
 ?>
+
+<script type="text/javascript"> 
+	if(confirm('Saved Succesfully, do you want to add another one?')) {
+    	window.location.href = 'formulario.html';
+	}
+</script>
 
 

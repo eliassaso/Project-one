@@ -1,0 +1,33 @@
+
+form{
+	background-color: #DCDCDC; 
+	text-align:center;
+	border-style: ridge;
+	border-width:1px;
+	width: 60%;
+	height: 500px;
+	padding-top: 1%; 
+	border-color: #c0c0c0;
+	margin-top:1%;
+	margin-bottom:5%;
+	margin-left:20%;
+	margin-right:20%; 
+	box-shadow: 5px 5px 7px #777;
+}
+
+body{background-color: #E6FFEC;}
+
+.container{
+	width: 43%;
+	height: 300px;
+	margin-left: 5%;
+	border-style: ridge;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	padding-top: 5%;
+	display: block;
+	float: left;
+	background-color: #FFFFFF;
+	box-shadow: 5px 5px 7px #777;}
+
+#send{margin-top: 5%;}

@@ -36,8 +36,8 @@
 	$fecha = date("d-m-Y");
 	$fname = $fecha.'.csv';
 	//$flag = true; en caso de quitar algún encabezado
-	$count = 0;
-	$fila = 1;
+	//$count = 0;
+	$fila = 0; //para saber cuantos alumnos ingresaron en el registro a ingresar
 	//echo "$path\n";
 	
 	foreach(findAllDirs('/home*') as $dir) { 
@@ -52,7 +52,7 @@
 	if (($gestor = fopen("$path", "r")) !== FALSE) {
 		
 		while (($datos = fgetcsv($gestor, 1000, ";")) !== FALSE) {
-			$numero = count($datos);
+			//$numero = count($datos);
 			$fila++;			
 				//por si se requiere quitar algún encabezado
 				//if ($flag)
@@ -95,8 +95,8 @@
 		$mail->AddBCC("");//("cuenta@dominio.com"); // Copia oculta
 		$mail->IsHTML(true); // El correo se envía como HTML
 		$mail->Subject = "Closing journal"; // Este es el titulo del email.
-		$body = "<h1 style='color:red'>Hola mundo. Esta es la primer línea</h1>";
-		//$body .= "Acá continuo ";
+		$body = "<h1 style='color:blue'>Record date = **** $fecha ****</h1>";
+		$body .= "<h1 style='color:blue'>Number of registered students = **** $fila **** </h1>";
 		$mail->Body = $body; // Mensaje a enviar
 		$mail->AltBody = "Hola mundo. Esta es la primer línean Acá continuo el mensaje"; // Texto sin html
 		$mail->AddAttachment("");//("imagenes/imagen.jpg", "imagen.jpg");

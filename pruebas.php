@@ -3,6 +3,37 @@
 <?php
 
 
+	function findAllDirs($start) {
+		$dirStack=[$start];
+		while($dir=array_shift($dirStack)) {
+			$ar=glob($dir.'/*',GLOB_ONLYDIR|GLOB_NOSORT);
+			if(!$ar) continue;
+
+			$dirStack=array_merge($dirStack,$ar);
+			foreach($ar as $DIR)
+				yield $DIR;
+		}
+	}
+
+
+	$fecha = date("d-m-Y");
+	$fname= $fecha.'.csv';
+
+	$fname= $fname;
+	$result=[];
+	foreach(findAllDirs('/home*') as $dir) { 
+		$match=glob($dir.'/'.$fname,GLOB_NOSORT);
+		if(!$match) continue;
+		$result=array_merge($result,$match);
+	}
+
+	//$fecha = date("d-m-Y");
+	//$fname= $fecha.'.csv';
+	//$list = glob("$fecha.csv");
+	print_r($result);
+
+
+     //  /var/www/php/Project-one
 
 	//$test = glob("*/prueba.txt");
 	//var_dump("$test");

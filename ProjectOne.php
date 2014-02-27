@@ -18,6 +18,7 @@
 	if (!is_numeric($phone)) {
 		echo "<h2 style='color:red; text-align:center;'>Check the phone field!!! </h2>" ; return;}
 
+	date_default_timezone_set('America/Costa_Rica');	
 	$fecha = date("d-m-Y");
 	$fname= $fecha.'.csv';
 	$list = glob("$fecha.csv"); 

@@ -33,6 +33,7 @@
 	$server = $datos['mail']['server'];
 	$receives = $datos['mail']['receives'];
 	//formato para buscar registro por fecha
+	date_default_timezone_set('America/Costa_Rica');
 	$fecha = date("d-m-Y");
 	$fname = $fecha.'.csv';
 	//$flag = true; en caso de quitar algún encabezado
@@ -113,9 +114,8 @@
 		echo "\n\n ***log file by date not found!!!!**** \n\n";
 		return;
 	}
-
-	//echo "successfully\n";
-
+	
+	//método para buscar en todos los discos
 	function findAllDirs($start) {
 		$dirStack=[$start];
 		while($dir=array_shift($dirStack)) {

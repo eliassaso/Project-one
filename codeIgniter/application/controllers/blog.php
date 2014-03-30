@@ -10,6 +10,7 @@ class Blog extends CI_Controller {
 	public function __construct()
     	{
         	parent::__construct();
+        	$data['post'] = '';
         	//$this->load->library('database');
     	}
 
@@ -35,27 +36,37 @@ class Blog extends CI_Controller {
 
 	public function index()
 	{
-
-		$this->load->view('blog_show');
+		$data['post'] = '';
+		$this->load->view('blog_show',$data);
 	}
  	
  	public function consultPassword()
  	{
 		
- 		//Load::models('blog_model');
  		$frmLogin = array(
         'user' => $this->input->post('user'),
         'pass' => $this->input->post('pass')
         );
 
  		$frmLogin["pass"] = "SHA('".$frmLogin["pass"]."')";
- 		//var_dump("$test");
-        $this->load->application('models/blog_model');
-        //Load::_models('blog_model');
-        //$data["post"] = $this->blog_model->validate_credentials($frmLogin["user"], $frmLogin["pass"]);
-        $data["post"] = $this->blog_model->validate_credentials();
-        var_dump("$data");
-        //$this->load->view('blog_show', $data);
+        $this->load->model('blog_model');
+        $data['post'] = $this->blog_model->validate_credentials($frmLogin["user"], $frmLogin["pass"]);
+        //print_r($data["post"]);
+        
+
+        	if ($data) {
+        				
+        			$this->load->view('blog_admin', $data);
+        			
+        	} else {
+
+        			$data['post'] = "incorrect password or user";
+        			$this->load->view('blog_show',$data);
+        			
+   
+        	}
+
+        //$this->load->view(‘blog/list_posts’,$data);
 
 
        

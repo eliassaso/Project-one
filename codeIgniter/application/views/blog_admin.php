@@ -57,10 +57,26 @@
 		padding: 0 10px 0 10px;
 		margin: 20px 0 0 0;
 	}
+	#containerPost{
+		width: 80%;
+		height: 270px;
+		padding-left: 2%; 
+		margin: 10px;
+		border: 1px solid #D0D0D0;
+		-webkit-box-shadow: 0 0 8px #D0D0D0;
+	}
 	
-	#container{
-		width: 50%;
-		height: 100px;
+	#containerBlog{
+		width: 80%;
+		height: 80px;
+		padding-left: 2%; 
+		margin: 10px;
+		border: 1px solid #D0D0D0;
+		-webkit-box-shadow: 0 0 8px #D0D0D0;
+	}
+	#containerBlogger{
+		width: 80%;
+		height: 290px;
 		padding-left: 2%; 
 		margin: 10px;
 		border: 1px solid #D0D0D0;
@@ -70,19 +86,46 @@
 </head>
 <body>
 
-<div id="container">
+<div id="containerBlogger">
+	
+		<h4>Logger:<?php echo $post->user; ?></h4>
 
 		<FORM > 
-			<!--<h2><?php //echo $post['user'] ?></h2>-->
-			<h1>Logger:</h1><h1><?php echo $post->user; ?></h1>
-
+			<h1><strong>BLOGGER DATA:</strong></h1>
+			<br><br><br>
+			<h1><strong>Name:  </strong><?php echo $blogger->nombre;?></h1>
+			<br><br><br>
+			<h1><strong>Bibliography:  </strong><?php echo $blogger->bibliografia; ?></h1>
+			<br><br><br>
+			<h1><a href=<?php echo $blogger->redes_sociales; ?> target="_blank">facebook Blogger</a></h1>
 		</FORM>
 
 </div>
 
-<div id="container">
-
-
+<div id="containerBlog">
+	<FORM name="frmBlog" method="post" action="" > 
+		<h1><strong>BLOG DATA:</strong></h1>
+		<h1><strong>Name: </strong> <?php echo $blog->nombre_blog;?></h1>
+		<h1><strong>detail: </strong> <?php echo $blog->detalle; ?></h1>
+	</FORM>
 </div>
+
+<div id="containerPost">
+	<FORM name="frmPost" method="post" action="insert_post" > 
+		<h1><strong>Write post:</strong></h1>
+		<br><br><br>
+		
+		<input type="hidden" name="id_blog" value=<?php echo $blog->id_blog;?>>
+		<input type="hidden" name="id_blogger" value=<?php echo $blogger->id_blogger;?>>
+
+
+
+		<h2>Title:  <INPUT TYPE="text" PLACEHOLDER="title" name="title" ></h2>
+		
+		<h2>Post:</h2> <textarea name="post_blogger" type="textarea" rows="4" cols="120"> </textarea>
+		<input type="submit" name="consultar" value="Enviar">
+	</FORM>
+</div>
+
 </body>
 </html>

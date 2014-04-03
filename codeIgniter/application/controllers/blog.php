@@ -58,6 +58,7 @@ class Blog extends CI_Controller {
  		$frmLogin["pass"] = "SHA('".$frmLogin["pass"]."')";
         //$this->load->model('blog_model');
         $data['post'] = $this->blog_model->validate_credentials($frmLogin["user"], $frmLogin["pass"]);
+        $data['post_blogger'] = $this->blog_model->db_post_blogger();
         $data['blogger'] = $this->blog_model->db_blogger();
         $data['blog'] = $this->blog_model->db_blog();
 

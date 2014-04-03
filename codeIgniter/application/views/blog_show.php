@@ -32,6 +32,10 @@
 			padding: 14px 15px 10px 15px;
 			float: left;
 		}
+		h4 {
+			
+			border-bottom: 1px solid #EBEAFD;;
+		}
 
 		code {
 			font-family: Consolas, Monaco, Courier New, Courier, monospace;
@@ -78,8 +82,8 @@
 			height: 200px;
 			padding-left: 2%; 
 			margin: 10px;
-			border: 1px solid #D0D0D0;
-			-webkit-box-shadow: 0 0 8px #D0D0D0;
+			/*border: 1px solid #D0D0D0;
+			-webkit-box-shadow: 0 0 8px #D0D0D0;*/
 		}
 		#container{
 			background-color: #D6D6D6;
@@ -95,8 +99,8 @@
 			height: 60px;
 			padding-left: 2%; 
 			margin: 10px;
-			border: 1px solid #D0D0D0;
-			-webkit-box-shadow: 0 0 8px #D0D0D0;
+			/*border: 1px solid #D0D0D0;
+			-webkit-box-shadow: 0 0 8px #D0D0D0;*/
 		}
 
 	</style>
@@ -107,11 +111,11 @@
 
 <div id="containerBlog">
 	<div id="container">
-		<FORM name="frmLogin" method="post" action="<?php echo 'index.php/blog/consultPassword'; ?>" > 
+		<FORM name="frmLogin" method="post" action="<?php echo base_url().'/index.php/blog/consultPassword'; ?>" > 
 			<h3>logging of administrator blog: </h3><BR>
 			<h3><label>User:</label><INPUT TYPE="text" PLACEHOLDER="User Name" name="user" value="admin"></h3>
 			<h3><label>Password:</label><INPUT TYPE="PASSWORD" PLACEHOLDER="Password" name="pass" value="123"></h3>
-			<h3><input type="submit" name="consultar" value="Enviar"></h3>
+			<h3><input type="submit" name="consultar" value="Sign in"></h3>
 			<label><h1><?php echo $post ?></h1></label>
 		</FORM>
 	</div>	
@@ -141,13 +145,14 @@
 	 <form id='containerPost' name="frmPostEntry" method="post" action="<?php echo 'index.php/blog/insert_coment'; ?>">
 	 					<input type="hidden" name="id_post" value=<?php echo $entry->id_post;?>>
                         <h2><?=$entry->titulo?></h2>
-                        Date: <?=$entry->fecha?><hr />
+                        <h4>Date: <?=$entry->fecha?></h4>
                         Post: <?=$entry->contenido?><br />		
 					<div id="containerComent">
 						<h3><label>who says:</label><INPUT TYPE="text" PLACEHOLDER="Name" name="nombre_usuario"></h3>
                         <h3><textarea name="coment_post" type="textarea" rows="1" cols="80"> </textarea></h3>
                         <h3><input type="submit" name="comentario" value="Comment"> </h3>
 					</div>
+					<hr />
 						                 
      </form>
                 <?php endforeach; ?>

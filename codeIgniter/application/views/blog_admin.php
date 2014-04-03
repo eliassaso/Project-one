@@ -59,7 +59,7 @@
 	}
 	#containerPost{
 		width: 80%;
-		height: 270px;
+		height: 290px;
 		padding-left: 2%; 
 		margin: 10px;
 		border: 1px solid #D0D0D0;
@@ -112,6 +112,9 @@
 
 <div id="containerPost">
 	<FORM name="frmPost" method="post" action="insert_post" > 
+			
+			
+
 		<h1><strong>Write post:</strong></h1>
 		<br><br><br>
 		
@@ -123,7 +126,11 @@
 		<h2>Title:  <INPUT TYPE="text" PLACEHOLDER="title" name="title" ></h2>
 		
 		<h2>Post:</h2> <textarea name="post_blogger" type="textarea" rows="4" cols="120"> </textarea>
-		<input type="submit" name="consultar" value="Enviar">
+		<input type="submit" name="consultar" value="Create">
+
+	</FORM>
+	<FORM name="frmEditComment" method="post" action="" > 
+				<input type="submit" name="editComment" value="Blog Comments Edit">
 	</FORM>
 </div>
 
